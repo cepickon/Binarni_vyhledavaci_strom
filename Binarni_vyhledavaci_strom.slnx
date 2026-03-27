@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Binarni_vyhledavaci_strom/Binarni_vyhledavaci_strom.vcxproj" Id="bfa46a34-21d2-461a-93b7-01a681dbbb09" />
+</Solution>
