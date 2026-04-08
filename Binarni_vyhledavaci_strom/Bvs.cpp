@@ -65,6 +65,43 @@ void Bvs::vypisDS(){
 		}
 	}
 }
+void Bvs::smaz(int hodnota){
+	BvsPrvek* parent = nullptr;
+	BvsPrvek* current = mKoren;
+	while (current != nullptr && current->mHodnota != hodnota) {
+		parent = current;
+		if (hodnota < current->mHodnota) {
+			current = current->mLevy;
+		} else {
+			current = current->mPravy;
+		}
+	}
+	if (current == nullptr) {
+		std::cout << "Hodnota " << hodnota << " nenalezena ve stromu." << std::endl;
+		return;
+	}
+	if (current->mLevy != nullptr && current->mPravy != nullptr) {
+		BvsPrvek* succParent = current;
+		BvsPrvek* succ = current->mPravy;
+		while (succ->mLevy != nullptr) {
+			succParent = succ;
+			succ = succ->mLevy;
+		}
+		current->mHodnota = succ->mHodnota;
+		parent = succParent;
+		current = succ;
+	}
+	BvsPrvek* child = (current->mLevy != nullptr) ? current->mLevy : current->mPravy;
+	if (parent == nullptr) {
+		mKoren = child;
+	} else if (parent->mLevy == current) {
+		parent->mLevy = child;
+	} else {
+		parent->mPravy = child;
+	}
+	delete current;
+	std::cout << "Hodnota " << hodnota << " byla smazana" << std::endl;
+}
 int Bvs::jeVeStromu(int hodnota) {
 	BvsPrvek* aktualni = mKoren;
 	while (aktualni != nullptr) {
