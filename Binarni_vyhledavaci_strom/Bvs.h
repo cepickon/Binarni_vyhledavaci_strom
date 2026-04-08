@@ -7,6 +7,7 @@ public:
 	~Bvs();
 	void vloz(int hodnota);
 	void vypisDH();
+	void vypisDS();
 	int jeVeStromu(int hodnota);
 private:
 	BvsPrvek* mKoren;
