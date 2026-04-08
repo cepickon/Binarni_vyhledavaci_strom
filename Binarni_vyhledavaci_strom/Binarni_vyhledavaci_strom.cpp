@@ -16,5 +16,8 @@ int main() {
 	std::cout << std::endl;
 	std::cout << "Je 3 ve stromu? " << (strom.jeVeStromu(3) ? "True" : "False") << std::endl;
 	std::cout << "Je 0 ve stromu? " << (strom.jeVeStromu(0) ? "True" : "False") << std::endl;
+	strom.smaz(3);
+	strom.vypisDH();
+	strom.vypisDS();
 	std::cout << std::endl;
 }
