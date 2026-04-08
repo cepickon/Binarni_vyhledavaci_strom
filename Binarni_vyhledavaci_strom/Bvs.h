@@ -8,6 +8,7 @@ public:
 	void vloz(int hodnota);
 	void vypisDH();
 	void vypisDS();
+	void smaz(int hodnota);
 	int jeVeStromu(int hodnota);
 private:
 	BvsPrvek* mKoren;
