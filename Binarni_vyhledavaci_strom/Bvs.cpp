@@ -1,9 +1,11 @@
 #include <iostream> 
+#include <queue>
 #include "Bvs.h" 
 #include "BvsPrvek.h" 
 
 Bvs::Bvs()
-	:mKoren(nullptr){}
+	:mKoren(nullptr) {
+}
 Bvs::~Bvs() {}
 void Bvs::vloz(int hodnota) {
 	BvsPrvek* novy = new BvsPrvek();
@@ -40,8 +42,28 @@ void Bvs::vypisDH(BvsPrvek* item) {
 	vypisDH(item->mPravy);
 }
 void Bvs::vypisDH() {
-	std::cout << "Vypis: " << std::endl;
+	std::cout << "Vypis do hloubky: ";
 	vypisDH(mKoren);
+	std::cout << std::endl;
+}
+void Bvs::vypisDS(){
+	std::cout << "Vypis do sirky: ";
+	if (mKoren == nullptr) {
+		return;
+	}
+	std::queue<BvsPrvek*> fronta;
+	fronta.push(mKoren);
+	while (!fronta.empty()) {
+		BvsPrvek* aktualni = fronta.front();
+		fronta.pop();
+		std::cout << aktualni->mHodnota << " ";
+		if (aktualni->mLevy != nullptr) {
+			fronta.push(aktualni->mLevy);
+		}
+		if (aktualni->mPravy != nullptr) {
+			fronta.push(aktualni->mPravy);
+		}
+	}
 }
 int Bvs::jeVeStromu(int hodnota) {
 	BvsPrvek* aktualni = mKoren;
