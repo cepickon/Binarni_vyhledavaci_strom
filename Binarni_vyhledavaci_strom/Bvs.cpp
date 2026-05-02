@@ -117,3 +117,17 @@ int Bvs::jeVeStromu(int hodnota) {
 	}
 	return false;
 }
+void Bvs::maximum() {
+	BvsPrvek* aktualni = mKoren;
+	while (aktualni->mPravy != nullptr) {
+		aktualni = aktualni->mPravy;
+	}
+	std::cout << "Maximum: " << aktualni->mHodnota << std::endl;
+}
+void Bvs::minimum() {
+	BvsPrvek* aktualni = mKoren;
+	while (aktualni->mLevy != nullptr) {
+		aktualni = aktualni->mLevy;
+	}
+	std::cout << "Minimum: " << aktualni->mHodnota << std::endl;
+}
