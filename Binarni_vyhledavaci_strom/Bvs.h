@@ -10,6 +10,8 @@ public:
 	void vypisDS();
 	void smaz(int hodnota);
 	int jeVeStromu(int hodnota);
+	void maximum();
+	void minimum();
 private:
 	BvsPrvek* mKoren;
 	void vypisDH(BvsPrvek* item);
