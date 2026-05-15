@@ -159,3 +159,41 @@ int Bvs::soucetStromuDH(BvsPrvek* item) {
 		soucetStromuDH(item->mLevy) + 
 		soucetStromuDH(item->mPravy);
 }
+int Bvs::pocetS(){
+	int soucet = 0;
+	std::queue<BvsPrvek*> fronta;
+	fronta.push(mKoren);
+	while (!fronta.empty()) {
+		BvsPrvek* aktualni = fronta.front();
+		if (aktualni->mHodnota % 2 == 0) {
+			soucet++;
+		}
+		fronta.pop();
+		if (aktualni->mLevy != nullptr) {
+			fronta.push(aktualni->mLevy);
+		}
+		if (aktualni->mPravy != nullptr) {
+			fronta.push(aktualni->mPravy);
+		}
+	}
+	return soucet;
+}
+int Bvs::pocetL() {
+	int soucet = 0;
+	std::queue<BvsPrvek*> fronta;
+	fronta.push(mKoren);
+	while (!fronta.empty()) {
+		BvsPrvek* aktualni = fronta.front();
+		if (aktualni->mHodnota % 2 == 0) {
+			soucet++;
+		}
+		fronta.pop();
+		if (aktualni->mLevy != nullptr) {
+			fronta.push(aktualni->mLevy);
+		}
+		if (aktualni->mPravy != nullptr) {
+			fronta.push(aktualni->mPravy);
+		}
+	}
+	return soucet;
+}
