@@ -18,6 +18,8 @@ int main() {
 	std::cout << "Je 0 ve stromu? " << (strom.jeVeStromu(0) ? "True" : "False") << std::endl;
 	std::cout << "Soucet stromu " << strom.soucetStromuDS() << std::endl;
 	std::cout << "Soucet stromu " << strom.soucetStromuDH() << std::endl;
+	std::cout << "Pocet sudych prvku " << strom.pocetS() << std::endl;
+	std::cout << "Pocet lichych prvku " << strom.pocetL() << std::endl;
 	strom.maximum();
 	strom.minimum();
 	strom.smaz(3);
