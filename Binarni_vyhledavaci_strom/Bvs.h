@@ -14,6 +14,8 @@ public:
 	void minimum();
 	int soucetStromuDS();
 	int soucetStromuDH();
+	int pocetS();
+	int pocetL();
 private:
 	BvsPrvek* mKoren;
 	void vypisDH(BvsPrvek* item);
