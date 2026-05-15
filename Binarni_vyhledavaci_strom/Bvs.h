@@ -12,7 +12,10 @@ public:
 	int jeVeStromu(int hodnota);
 	void maximum();
 	void minimum();
+	int soucetStromuDS();
+	int soucetStromuDH();
 private:
 	BvsPrvek* mKoren;
 	void vypisDH(BvsPrvek* item);
+	int soucetStromuDH(BvsPrvek* item);
 };
