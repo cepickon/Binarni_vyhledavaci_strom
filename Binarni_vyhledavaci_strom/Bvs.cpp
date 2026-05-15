@@ -131,3 +131,31 @@ void Bvs::minimum() {
 	}
 	std::cout << "Minimum: " << aktualni->mHodnota << std::endl;
 }
+int Bvs::soucetStromuDS(){
+	int soucet = 0;
+	std::queue<BvsPrvek*> fronta;
+	fronta.push(mKoren);
+	while (!fronta.empty()) {
+		soucet += fronta.front()->mHodnota;
+		BvsPrvek* aktualni = fronta.front();
+		fronta.pop();
+		if (aktualni->mLevy != nullptr) {
+			fronta.push(aktualni->mLevy);
+		}
+		if (aktualni->mPravy != nullptr) {
+			fronta.push(aktualni->mPravy);
+		}
+	}
+	return soucet;
+}
+int Bvs::soucetStromuDH() {
+	return soucetStromuDH(mKoren);
+}
+int Bvs::soucetStromuDH(BvsPrvek* item) {
+	if (item == nullptr) {
+		return 0;
+	}
+	return item->mHodnota + 
+		soucetStromuDH(item->mLevy) + 
+		soucetStromuDH(item->mPravy);
+}
