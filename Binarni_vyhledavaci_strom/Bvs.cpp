@@ -184,7 +184,7 @@ int Bvs::pocetL() {
 	fronta.push(mKoren);
 	while (!fronta.empty()) {
 		BvsPrvek* aktualni = fronta.front();
-		if (aktualni->mHodnota % 2 == 0) {
+		if (aktualni->mHodnota % 2 != 0) {
 			soucet++;
 		}
 		fronta.pop();
